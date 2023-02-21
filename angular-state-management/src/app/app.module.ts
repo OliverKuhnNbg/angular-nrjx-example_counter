@@ -13,7 +13,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   imports: [
     BrowserModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    isDevMode() ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [],
   bootstrap: [AppComponent]
