@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CustomerViewComponent } from './components/customer-view/customer-view.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CustomerViewComponent
   ],
   imports: [
     BrowserModule,
