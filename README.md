@@ -13,7 +13,7 @@ https://dzone.com/articles/angular-app-state-management-with-ngrx
 1. Create an Angular App With Angular CLI
 
 - Let's create a new Angular Application 
--```
+```
 ng new angular-state-management --style=scss --routing=false
 ```
 
@@ -21,13 +21,15 @@ ng new angular-state-management --style=scss --routing=false
 2. Load the Project Into the IDE (I'm Using IntelliJ IDEA)
 3. Run the App
 
-Let's run the app created by the CLI, just to make sure everything has been created correctly so far.
+- Let's run the app created by the CLI, just to make sure everything has been created correctly so far.
 ```
 cd angular-state-management 
 ```
+...
 npm start
+...
 
-Check that the app is running on http://localhost:4200/.
+- Check that the app is running on http://localhost:4200/.
 4. Install NgRx and Tools
 
 NgRx Schematics provides scaffolding. NgRx commands get integrated into the Angular CLI, and most of the NgRx elements can be created using angular CLI. So, let's add NgRx Schematics. (You can use a new terminal window or exit out from the running angular app by pressing the Ctrl+C key )
