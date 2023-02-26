@@ -7,7 +7,7 @@ import { CustomerAddComponent } from '../components/customer-add/customer-add.co
 
 
 @NgModule({
-  declarations: [],
+  declarations: [CustomerViewComponent, CustomerAddComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature(customerFeatureKey, reducer),
