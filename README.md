@@ -12,12 +12,12 @@ https://dzone.com/articles/angular-app-state-management-with-ngrx
 
 1. Create an Angular App With Angular CLI
 
-Let's create a new Angular Application 
-```
+- Let's create a new Angular Application 
+-```
 ng new angular-state-management --style=scss --routing=false
 ```
 
-It will create all the required files and install the dependencies. This will take a few minutes.
+- It will create all the required files and install the dependencies. This will take a few minutes.
 2. Load the Project Into the IDE (I'm Using IntelliJ IDEA)
 3. Run the App
 
