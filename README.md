@@ -1,4 +1,4 @@
-# angular-nrjx-example - update list
+# angular-nrjx-example - update & reset list
 angular state management with nrjx
 
 ## example setup
