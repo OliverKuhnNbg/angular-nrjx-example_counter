@@ -6,16 +6,18 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { CustomerModule } from './customer/customer.module';
+import { CounterModule } from './modules/counter/counter.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument(),
-    CustomerModule
+    CustomerModule,
+    CounterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

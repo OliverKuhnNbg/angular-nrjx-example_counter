@@ -1,18 +1,15 @@
 
 <div class="container-fluid">
+
   <div class="row text-center">
-    <h1>
-      Welcome to {{ title }}!
-    </h1>
+    <h1>{{ title }}</h1>
+  </div>
+
+  <div class="row">
+      <app-counter-output></app-counter-output>
   </div>
   <div class="row">
-    <div class="col-12">
-      <app-customer-view></app-customer-view>
-    </div>
+    <app-counter-buttons></app-counter-buttons>
   </div>
-  <div class="row">
-    <app-customer-add></app-customer-add>
-    <app-customer-reset></app-customer-reset>
-  </div>
-  
+
 </div>
