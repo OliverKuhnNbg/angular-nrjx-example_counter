@@ -1,5 +1,9 @@
-# angular-nrjx-example - update & reset list
+# angular-nrjx-example - counter
 angular state management with nrjx
+  functions:
+  - increase
+  - decrease
+  - reset
 
 ## example setup
 - ngrx store
