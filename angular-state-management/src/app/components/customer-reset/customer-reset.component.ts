@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Customer } from 'src/app/models/customer';
+import { loadCustomers, resetCustomersList } from 'src/app/store/customer.actions';
 
 @Component({
   selector: 'app-customer-reset',
@@ -13,6 +14,6 @@ export class CustomerResetComponent {
 
   resetCustomerList(): void {
     console.log('call component method')
-    //this.store.dispatch(loadCustomers(customer));
+    this.store.dispatch(resetCustomersList());
   }
 }
