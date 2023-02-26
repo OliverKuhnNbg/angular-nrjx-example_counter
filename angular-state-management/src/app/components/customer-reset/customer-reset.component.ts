@@ -13,7 +13,6 @@ export class CustomerResetComponent {
   }
 
   resetCustomerList(): void {
-    console.log('call component method')
     this.store.dispatch(resetCustomersList());
   }
 }
