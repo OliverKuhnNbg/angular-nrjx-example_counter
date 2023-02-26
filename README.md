@@ -38,7 +38,7 @@ npm start
 
 NgRx Schematics provides scaffolding. NgRx commands get integrated into the Angular CLI, and most of the NgRx elements can be created using angular CLI. So, let's add NgRx Schematics. (You can use a new terminal window or exit out from the running angular app by pressing the Ctrl+C key )
 ```
-ng add @ngrx/schematics@latest
+ng add @ngrx/schematics
 ```
 
 Configure the Schematics so that NgRx commands are available in Angular CLI by default.
