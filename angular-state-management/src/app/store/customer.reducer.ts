@@ -18,6 +18,11 @@ export const customerReducer = createReducer(
     (state: State, {customer}) =>
       ({...state,
         customers: [...state.customers, customer]
+      })),
+  on(CustomerActions.resetCustomersList,
+    (state: State, {}) =>
+      ({...state,
+        customers: []
       }))
 );
 

@@ -6,6 +6,10 @@ export const loadCustomers = createAction(
   (customer: Customer) => ({customer})
 );
 
+export const resetCustomersList = createAction(
+  '[Customer] Reset Customers'
+);
+
 
 
 
