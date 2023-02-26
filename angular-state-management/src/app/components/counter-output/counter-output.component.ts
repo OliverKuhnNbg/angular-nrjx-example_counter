@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./counter-output.component.scss']
 })
 export class CounterOutputComponent {
+  constructor() { }
 
+  
 }

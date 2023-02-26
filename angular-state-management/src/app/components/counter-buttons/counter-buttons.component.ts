@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class CounterButtonsComponent {
 
+  onIncrement() {
+    console.log('test btn press')
+  }
+  onDecrement() {
+    console.log('test btn press')
+  }
+  onReset() {
+    console.log('test btn press')
+  }
 }
