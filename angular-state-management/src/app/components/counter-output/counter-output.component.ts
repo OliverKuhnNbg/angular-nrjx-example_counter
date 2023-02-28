@@ -13,6 +13,7 @@ export class CounterOutputComponent {
 
   constructor(private store: Store<{ count: number }>) {
     this.count$ = store.select('count');
+    this.count$.subscribe(data => {console.log(data)})
   }
 
   //Implement the increment, decrement, and reset methods by dispatching actions to the store.

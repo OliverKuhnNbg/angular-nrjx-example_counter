@@ -12,7 +12,6 @@ export class CounterButtonsComponent {
 
   constructor(private store: Store<{ count: number }>) { }
 
-  //Implement the increment, decrement, and reset methods by dispatching actions to the store.
   increment() {
     this.store.dispatch(increment());
   }
