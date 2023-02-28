@@ -1,9 +1,13 @@
 
-<div style="text-align:center">
-    <h1>
-      Welcome to {{ title }}!
-    </h1>
+<div class="container-fluid">
+
+  <div class="row text-center">
+    <h1>{{ title }}</h1>
+  </div>
+
+  <div class="row">
+      <app-counter-output></app-counter-output>
+  </div>
+  <app-counter-buttons></app-counter-buttons>
+
 </div>
-<app-customer-view></app-customer-view>
-<app-customer-add></app-customer-add>
-<app-customer-reset></app-customer-reset>
