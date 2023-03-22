@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import * as THREE from "three";
 import { Scene } from 'three';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 
 @Component({
   selector: 'app-show-pump',
@@ -22,7 +23,7 @@ export class ShowPumpComponent {
     const cube = new THREE.Mesh( geometry, material );
 
     // add custom mesh
-    
+    const objLoader = new OBJLoader();
 
     scene.add( cube );
 
