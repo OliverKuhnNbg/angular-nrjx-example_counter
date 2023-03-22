@@ -23,7 +23,7 @@ export class ShowPumpComponent {
     const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
     const cube = new THREE.Mesh( geometry, material );
 
-    // add controlls
+    /** add (mouse) controlls */ 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.enableZoom = true;
@@ -36,6 +36,7 @@ export class ShowPumpComponent {
     function animate() {
       requestAnimationFrame( animate );
 
+      /** (auto-)rotation of object */ 
       //cube.rotation.x += 0.01;
       //cube.rotation.y += 0.01;
 
