@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import * as THREE from "three";
 import { Scene } from 'three';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 @Component({
   selector: 'app-show-pump',
@@ -22,8 +23,11 @@ export class ShowPumpComponent {
     const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
     const cube = new THREE.Mesh( geometry, material );
 
-    // add custom mesh
-    const objLoader = new OBJLoader();
+    // add controlls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.enableZoom = true;
+
 
     scene.add( cube );
 
@@ -32,9 +36,10 @@ export class ShowPumpComponent {
     function animate() {
       requestAnimationFrame( animate );
 
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+      //cube.rotation.x += 0.01;
+      //cube.rotation.y += 0.01;
 
+      controls.update;
       renderer.render( scene, camera );
     }
 
