@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import * as THREE from "three";
 import { Scene } from 'three';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 @Component({
@@ -19,31 +19,38 @@ export class ShowPumpComponent {
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
 
-    const geometry = new THREE.BoxGeometry( 2, 2, 2 );
-    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-    const cube = new THREE.Mesh( geometry, material );
+    function init(obj:any){
+      console.log(obj)
+      const geometry = obj.children[0].geometry; //new THREE.BoxGeometry( 2, 2, 2 );
+      const material = new THREE.MeshBasicMaterial( { color: 0x00ff80 } );
+      const cube = new THREE.Mesh( geometry, material );
 
-    /** add (mouse) controlls */ 
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.enableZoom = true;
+      /** add (mouse) controlls */ 
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.enableZoom = true;
 
 
-    scene.add( cube );
+      scene.add( cube );
 
-    camera.position.z = 5;
+      camera.position.z = 200;
 
-    function animate() {
-      requestAnimationFrame( animate );
+      function animate() {
+        requestAnimationFrame( animate );
 
-      /** (auto-)rotation of object */ 
-      //cube.rotation.x += 0.01;
-      //cube.rotation.y += 0.01;
+        /** (auto-)rotation of object */ 
+        //cube.rotation.x += 0.01;
+        //cube.rotation.y += 0.01;
 
-      controls.update;
-      renderer.render( scene, camera );
+        controls.update;
+        renderer.render( scene, camera );
+      }
+
+      animate();
     }
-
-    animate();
+    
+    /**load .obj */
+    const loader = new OBJLoader();
+    loader.load('assets/models/r2-d2.obj', obj => {init(obj)})
  }
 }
