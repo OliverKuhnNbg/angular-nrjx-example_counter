@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import * as THREE from "three";
 import { Scene } from 'three';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 @Component({
@@ -30,25 +31,40 @@ export class ShowPumpComponent {
       controls.enableZoom = true;
 
       /** add lights */
-      const keyLight = new THREE.DirectionalLight( new THREE.Color('hsl(30, 100%, 75%)'), 1.0 );
+      const keyLight = new THREE.DirectionalLight( new THREE.Color('hsl(30, 100%, 75%)'), 3.0 );
       keyLight.position.set(-100, 0, 100);
 
       const fillLight = new THREE.DirectionalLight( new THREE.Color('hsl(240, 100%, 75%)'), 0.75 );
       fillLight.position.set(100, 0, 100);
 
-      const backLight = new THREE.DirectionalLight( 0xffffff, 1.0 );
+      const backLight = new THREE.DirectionalLight( 0xffffff, 3.0 );
       backLight.position.set(100, 0, -100).normalize();
 
       scene.add(keyLight);
       scene.add(fillLight);
       scene.add(backLight);
 
-      const objLoader = new OBJLoader();
-      objLoader.setPath('assets/models/');
-      objLoader.load('r2-d2.obj', function(object) {
-        object.position.y -= 30;
-        scene.add(object)
-      })
+      /** load and add Material to object */
+      const mtlLoader = new MTLLoader();
+      mtlLoader.setResourcePath('assets/textures/');
+      mtlLoader.setPath('assets/textures/');
+      mtlLoader.load('r2-d2.mtl', materials => {
+        materials.preload();
+
+        /** add object as object (not as geometry) */
+        const objLoader = new OBJLoader();
+
+        /** add material to object */
+        objLoader.setMaterials(materials);
+
+        objLoader.setPath('assets/models/');
+        objLoader.load('r2-d2.obj', object => {
+          object.position.y -= 30;
+          scene.add(object)
+        })
+      });
+
+      
       //scene.add( cube );
 
       camera.position.z = 200;
