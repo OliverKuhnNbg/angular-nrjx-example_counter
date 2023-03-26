@@ -43,7 +43,13 @@ export class ShowPumpComponent {
       scene.add(fillLight);
       scene.add(backLight);
 
-      scene.add( cube );
+      const objLoader = new OBJLoader();
+      objLoader.setPath('assets/models/');
+      objLoader.load('r2-d2.obj', function(object) {
+        object.position.y -= 30;
+        scene.add(object)
+      })
+      //scene.add( cube );
 
       camera.position.z = 200;
 
