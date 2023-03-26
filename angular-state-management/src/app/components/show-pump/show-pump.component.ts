@@ -20,7 +20,6 @@ export class ShowPumpComponent {
     document.body.appendChild( renderer.domElement );
 
     function init(obj:any){
-      console.log(obj)
       const geometry = obj.children[0].geometry; //new THREE.BoxGeometry( 2, 2, 2 );
       const material = new THREE.MeshBasicMaterial( { color: 0x00ff80 } );
       const cube = new THREE.Mesh( geometry, material );
@@ -30,6 +29,19 @@ export class ShowPumpComponent {
       controls.enableDamping = true;
       controls.enableZoom = true;
 
+      /** add lights */
+      const keyLight = new THREE.DirectionalLight( new THREE.Color('hsl(30, 100%, 75%)'), 1.0 );
+      keyLight.position.set(-100, 0, 100);
+
+      const fillLight = new THREE.DirectionalLight( new THREE.Color('hsl(240, 100%, 75%)'), 0.75 );
+      fillLight.position.set(100, 0, 100);
+
+      const backLight = new THREE.DirectionalLight( 0xffffff, 1.0 );
+      backLight.position.set(100, 0, -100).normalize();
+
+      scene.add(keyLight);
+      scene.add(fillLight);
+      scene.add(backLight);
 
       scene.add( cube );
 
