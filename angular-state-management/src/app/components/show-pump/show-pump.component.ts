@@ -12,14 +12,16 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 })
 export class ShowPumpComponent {
 
- ngOnInit() {
-    const scene = new Scene();
-    scene.background = new THREE.Color(0xcfede7)
+  sceneWidth = window.innerWidth;
+  sceneHeight = window.innerHeight;
 
-    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+ ngOnInit() {
+    const scene = this.initScene();
+    
+    const camera = new THREE.PerspectiveCamera( 75, this.sceneWidth / this.sceneHeight, 0.1, 1000 );
 
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize( this.sceneWidth, this.sceneHeight);
     document.body.appendChild( renderer.domElement );
 
     /** add (mouse) controlls */ 
@@ -67,8 +69,18 @@ export class ShowPumpComponent {
 
 
     //scene.add( cube );
-
     camera.position.z = 50;
+
+    /** START: resize window */
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+    
+        renderer.setSize( window.innerWidth, window.innerHeight );
+    
+    }
+    window.addEventListener( 'resize', onWindowResize);
+    /** END: resize window */
 
     function animate() {
       requestAnimationFrame( animate );
@@ -83,4 +95,15 @@ export class ShowPumpComponent {
 
     animate();
  }
+  onWindowResize(camera:THREE.PerspectiveCamera, renderer:THREE.WebGLRenderer ) {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+    
+        renderer.setSize( window.innerWidth, window.innerHeight );
+  }
+  initScene() : Scene {
+    const scene = new Scene();
+    scene.background = new THREE.Color(0xcfede7)
+    return scene;
+  }
 }
