@@ -1,5 +1,6 @@
 # angular-nrjx-example - counter
 angular state management with nrjx
+# threeJS example (show-pump.component)
 
   functions:
   - increase
